@@ -1,3 +1,5 @@
+'use strict';
+
 // Require in the Database method from the sqlite3 module
 // We will be using the verbose execution mode, which will help with debugging errors.
 const { Database } = require('sqlite3').verbose();
