@@ -1,6 +1,5 @@
 'use strict';
 
-
 // sets constant variable sqlite 3 to equal js to require and incorporate sqlite 3
 const sqlite3 = require('sqlite3').verbose();
 
