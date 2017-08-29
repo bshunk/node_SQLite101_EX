@@ -42,13 +42,13 @@ const populateEmployees = () => {
 const getEmployeesAndDoStuff = () => {
   console.log('getEmployees called');
   
-  // Gets one result, even if we ask for all ( * )
+  // // Gets one result, even if we ask for all ( * )
   // db.get('SELECT * FROM employees', (err, {id, first, last, department, salary}) => {
   //   console.log('from db.get');
   //   console.log(`${id} ${first} ${last} ${department} ${salary}`); // only logs first employee
   // });
 
-  // gives us back an array of results
+  // // gives us back an array of results
   // db.all('SELECT * FROM employees', (err, allRows) => {
   //   // console.log('all rows', allRows);
   //   if (err) {
@@ -64,9 +64,9 @@ const getEmployeesAndDoStuff = () => {
   //   .forEach( (emp) => console.log(emp));
   // });
 
-  // Does what the above stuff does, but we're filtering in our query instead 
+  // // Does what the above stuff does, but we're filtering in our query instead 
   // setTimeout( () => { //added this when we got "no table" error. But doesn't always happen.
-  // Looking into why. Think it may have to do with how quickly it builds the db.
+  // // Looking into why. Think it may have to do with how quickly it builds the db.
   // db.all(`SELECT first, last, salary 
   //         FROM employees
   //         WHERE salary > 50000 
@@ -74,9 +74,9 @@ const getEmployeesAndDoStuff = () => {
   //         (err, allRows) => {
   //   console.log('all rows', allRows);
   // });
-  // }, 500);
+  // }, 500)
 
-  // .each() is a nice compromise between the above 2 options
+  // .each() // is a nice compromise between the above 2 options
   // db.each('SELECT * FROM employees', (err, { id, first, last, department, salary}) => {
   //   if (err) {
   //     return console.log(err.toString());
