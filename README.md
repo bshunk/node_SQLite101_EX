@@ -1,81 +1,49 @@
-# node_node.versions.optional_EX
+# SQLite Practice
 
-# Node.js versions -- This is an **optional** exercise, but reading the text is a good idea for everyone
+In this exercise you will create a SQLite database, create tables, insert records to the table, and query the database. We will be using the npm module [sqlite3](https://www.npmjs.com/package/sqlite3).
 
-## Introduction
-Node.js has several actively maintained versions. The current version of Node.js
-is considered "Stable" and there are other prior versions which are still being
-maintained. The most significant of these are considered "LTS" or in a long
-term support plan.
+This exercise is based on the [SQLite Intro Exercise](12-SQLite_create_db.md), so make sure that you have completed it before attempting this exercise.
 
-### [Node.js Long Term Support][lts]
 
-While we will primarily using the most current version of Node.js for these
-exercises, not everyone has this luxury. On the surface, the current version of
-Node.js should work the same as a prior version, but this is not always the case.
-The deeper the integrations or customizations of Node.js that your codebase
-uses, the more effort is required to upgrade to a newer version. For this
-reason, the Node.js maintainers are committed to fixing bugs, updating security,
-and adding small backwards compatible improvements for 3 full years.
+## Setup
 
-#### Release Schedule
-
-![Node.js Release Schedule](https://github.com/nodejs/LTS/raw/master/schedule.png)
-
-For example, Node.js version 6 was released in April of 2016 and will be
-maintained until April of 2019. Thus, if you write your code to this version,
-you can be sure that it will work and be secure at least until April 2019. At
-that point, if the current schedule is maintained, you can either continue to
-run version 6 without official support, upgrade your Node.js to version 8 (the
-next LTS release), or upgrade all the way to version 12 which is scheduled to be
-released in April of 2019. However, you can expect that upgrading from version 6 to
-version 8 will be simpler than from version 6 to version 12.
-
-Learning and adopting a new technology is an investment, and this support
-schedule encourages more people to look at Node.js for their projects. It allows
-some users to use the latest features and performance enhancements while
-allowing other users the assurance that the code they write today will continue
-to work.
-
-### [Node Version Manager][nvm]
-
-NVM is a helpful package that facilitates switching between multiple versions of Node.js. This [article](https://www.sitepoint.com/quick-tip-multiple-versions-node-nvm/) walks you through all the hows, wheres and whys of installing and implementing NVM.
-
-## Requirements
-
-Create a JavaScript file to act as a Node.js program named `node-version.js`. The file
-should be similar if not exactly the same as the previous exercise. However,
-run `nvm use` and change the Node.js version and make sure it works correctly in
-multiple versions.
-
-Expected:
-
-```bash
-$ nvm use node
-Now using node v6.3.1 (npm v3.10.5)
-$ ./node-version.js
-Node.js version: v6.3.1
-V8 version: 5.0.71.57
-$ nvm use v4
-Now using node v4.4.7 (npm v3.10.5)
-$ ./node-version.js
-Node.js version: 4.4.7
-V8 version: 4.5.103.36
+```
+cd workspace/node/exercises
+mkdir sqlite101
+cd sqlite101
+npm install sqlite3 --save
+touch sqlite3.js
 ```
 
-## Bonus
+## Instructions
 
--   Use [ES6 Destructuring][destructuring] to extract the two variables from the
-    `versions` object
--   Destructuring is a SyntaxError in Node.js by default in versions earlier
-    than v6. Manually enable destructuring inside the program. Hint: edit the
-    shebang
+A friend of yours owns a small family business and wants to start moving all of their business records into a database. Using your NodeJS skills, they want you to create a SQLite database to store information about their employees.
 
-## Additional Reading
+1. Create a database that is saved on disk.
 
--   [Node Version Manager][nvm]
--   [ES6 Destructuring Assignment][destructuring]
+1. Create a table titled `employees` with the following columns:
+  - id, firstName, lastName, jobTitle, address
 
-[nvm]: https://github.com/creationix/nvm
-[destructuring]: https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Operators/Destructuring_assignment
-[lts]: https://github.com/nodejs/LTS
+1. Create an array of at least 6 objects. Each object should have a key value pair matching each column name in the `employees` table.
+  ```js
+  eg: let array = [
+    { id: 0, firstName: 'Fred', lastName: 'Smith', jobTitle: 'Cashier', address: '500 Somewhere Lane' },
+    ...,
+  ]
+  ```  
+
+1. Insert each of the employee objects into the database.
+
+1. Write a statement to query the database and `console.log()` all employee records.
+
+1. Write a statement to query the database and `console.log()` each employees `jobTitle`.
+
+1. Write a statement to query the database and `console.log()` each employees `firstName`, `lastName` and `address` only.
+
+## Bonus Features
+
+1. Instead of using an array in the .js file, create a JSON file of employees to require into the js file. Use this to populate the table.
+
+1. Your friend has decided that they want to add a salary column to the employees table. Make sure to add a salary key value pair to each of the employee objects. Then drop the existing employees table, update the schema to accept a salary column, and repopulate the table.
+
+1. Write a statement that returns all employees of a specified `jobTitle`.
