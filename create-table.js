@@ -22,7 +22,7 @@ module.exports = () => {
       db.run(`DROP TABLE IF EXISTS employees`);
 
       // creates a new table in sqlite if none exists and adds the following properties:
-      db.run("CREATE TABLE IF NOT EXISTS employees (id INT, first TEXT, last TEXT, salary INT, department TEXT)");
+      db.run("CREATE TABLE IF NOT EXISTS employees (id INT, first TEXT, last TEXT, job TEXT, address TEXT)");
 
       // console log to see if the table was made correctly through the excecutiong
       console.log('table made?');
