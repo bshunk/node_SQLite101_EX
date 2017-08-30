@@ -28,7 +28,7 @@ module.exports = () => {
       console.log('table made?');
 
       // resolves the promes
-      resolve();
+      resolve();  
     });
   })
 
